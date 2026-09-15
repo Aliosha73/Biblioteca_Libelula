@@ -3,7 +3,7 @@ public class Cliente {
     int id;
     String direccion;
     private String telefono;
-    Libro libro;
+    Libro libroPrestado;
 
     public Cliente(String nombre, int id, String direccion, String telefono) {
         this.nombre = nombre;
@@ -44,11 +44,11 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public Libro getLibro() {
+    public Libro getLibroPrestado() {
         return libro;
     }
 
-    public void setLibro(Libro libro) {
+    public void setLibroPrestado(Libro libroPrestado) {
         this.libro = libro;
     }
 }
