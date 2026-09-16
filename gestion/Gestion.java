@@ -16,8 +16,27 @@ public class InventarioLibros {
 		libros.add(libro);
 	}
 
+	public void buscarLibro( libro libro){
+		
+	}
+
 	public List<Libro> getLibros() {
 		return libros;
+	}
+
+	public void mostrarInventario(){
+		if (listaLibros.isempty()){
+			System.out.println("el inventario esta vacio");
+			return;
+
+
+		}
+		System.out.println("\n-- INVENTARIO BIBLIOTECA");
+		for (libro libro : listaLibros){
+			String estado = libro.isDisponible() ?"Disponible" : "prestado";
+			System.out.println("ID LIBRO:" + libro.getIdLibro()+ "TITULO:" + libro.getTituloLibro + "ESTADO:" estado);
+
+		}
 	}
 	
 }
