@@ -2,7 +2,6 @@ public class Libro{
     private String idLibro;
     private String tituloLibro;
     private String autorLibro;
-    private String autorLibro;
     private String editorialLibro;
     private String anioPublicacionLibro;
     private String generolibro;
@@ -13,7 +12,7 @@ public class Libro{
 
 
 
-Public Libro(String idLibro, String tituloLibro, String autorLibro, String editorialLibro, String anioPublicacionLibro, String generolibro, CategoriaLibro categoriaLibro, boolean disponible) {
+public Libro(String idLibro, String tituloLibro, String autorLibro, String editorialLibro, String anioPublicacionLibro, String generolibro, CategoriaLibro categoriaLibro, boolean disponible) {
         this.idLibro = idLibro;
         this.tituloLibro = tituloLibro;
         this.autorLibro = autorLibro;

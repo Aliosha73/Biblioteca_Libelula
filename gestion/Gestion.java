@@ -50,7 +50,7 @@ public class InventarioLibros {
 		System.out.println("\n-- INVENTARIO BIBLIOTECA");
 		for (libro libro : listaLibros){
 			String estado = libro.isDisponible() ?"Disponible" : "prestado";
-			System.out.println("ID LIBRO:" + libro.getIdLibro()+ "TITULO:" + libro.getTituloLibro + "ESTADO:" estado);
+			System.out.println("ID LIBRO:" + libro.getIdLibro()+ "TITULO:" + libro.getTituloLibro + "ESTADO:" + estado);
 
 		}
 	}
