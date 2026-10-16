@@ -1,15 +1,42 @@
-public class Cliente {
-    private String nombre;
-    int id;
-    String direccion;
-    private String telefono;
-    Libro libroPrestado;
 
-    public Cliente(String nombre, int id, String direccion, String telefono) {
-        this.nombre = nombre;
+package modelo;
+
+import java.io.Serializable;
+
+public class Cliente implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private String nombre;
+    private int id;
+    private String direccion;
+    private String telefono;
+    private Libro libroPrestado;
+
+    public Cliente(String nombre, int id,
+            String direccion, String telefono) {
+
+        this.nombre = validarTexto(nombre, "El nombre es obligatorio.");
+
+        if (id <= 0) {
+            throw new IllegalArgumentException(
+                    "El ID del cliente debe ser mayor que cero.");
+        }
+
         this.id = id;
-        this.direccion = direccion;
-        this.telefono = telefono;
+        this.direccion = validarTexto(
+                direccion, "La dirección es obligatoria.");
+        this.telefono = validarTexto(
+                telefono, "El teléfono es obligatorio.");
+        this.libroPrestado = null;
+    }
+
+    private String validarTexto(String valor, String mensaje) {
+        if (valor == null || valor.trim().isEmpty()) {
+            throw new IllegalArgumentException(mensaje);
+        }
+
+        return valor.trim();
     }
 
     public String getNombre() {
@@ -17,7 +44,8 @@ public class Cliente {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre = validarTexto(
+                nombre, "El nombre es obligatorio.");
     }
 
     public int getId() {
@@ -25,6 +53,11 @@ public class Cliente {
     }
 
     public void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException(
+                    "El ID del cliente debe ser mayor que cero.");
+        }
+
         this.id = id;
     }
 
@@ -33,7 +66,8 @@ public class Cliente {
     }
 
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+        this.direccion = validarTexto(
+                direccion, "La dirección es obligatoria.");
     }
 
     public String getTelefono() {
@@ -41,15 +75,29 @@ public class Cliente {
     }
 
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+        this.telefono = validarTexto(
+                telefono, "El teléfono es obligatorio.");
     }
 
     public Libro getLibroPrestado() {
-        return libro;
+        return libroPrestado;
     }
 
     public void setLibroPrestado(Libro libroPrestado) {
-        this.libro = libro;
+        this.libroPrestado = libroPrestado;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nombre='" + nombre + '\'' +
+                ", id=" + id +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", libroPrestado=" + libroPrestado +
+                '}';
     }
 }
+
+
 
